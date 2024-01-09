@@ -1,0 +1,15 @@
+----------------------------------------    AULA #01    ----------------------------------------
+
+O QUE APRENDI NESSA ETAPA:
+
+* Criação de projeto Angular;
+
+* Criação de aplicativo na API Spotify for Developers e captura de Client ID para autenticação de terceiros;
+
+* Definição de parâmetros de configuração do Spotify nos ambientes de desenvolvimento e produção (Client ID, endpoint de autenticação, url de redirecionamento e escopos da API);
+
+* Definição de estilos globais no arquivo styles.scss;
+
+* Importação de fontes que serão usadas no projeto através do Google Fonts;
+
+* Importação de  variáveis entre arquivos SASS;

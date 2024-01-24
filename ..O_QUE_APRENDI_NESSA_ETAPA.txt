@@ -1,15 +1,15 @@
-----------------------------------------    AULA #01    ----------------------------------------
+----------------------------------------    AULA #02    ----------------------------------------
 
 O QUE APRENDI NESSA ETAPA:
 
-* Criação de projeto Angular;
+* Criação do módulo de página de login. Nesse projeto cada página corresponde a um módulo. Dessa forma as páginas são carregadas apenas sob demanda para fins de desempenho;
 
-* Criação de aplicativo na API Spotify for Developers e captura de Client ID para autenticação de terceiros;
+* Para assegurar que a aplicação se iniciará na tela de login foi definida uma rota no módulo raíz (app.module.ts) que redireciona o caminho do componente raíz (app.component.html) para path /login. Ao acessar esse caminho o módulo de login é carregado. Esse módulo, na sua rota padrão (''), carrega o componente login.component.ts que, por sua vez, renderiza a tela de login (login.component.html);
 
-* Definição de parâmetros de configuração do Spotify nos ambientes de desenvolvimento e produção (Client ID, endpoint de autenticação, url de redirecionamento e escopos da API);
+* Estilização da página de login com logo do Spotify e botão. Foram utilizados conceitos de classes de divs e importação de variáveis de outro arquivo SASS;
 
-* Definição de estilos globais no arquivo styles.scss;
+* Criação de Classe de Serviços que implementa método que concatena as variáveis de ambiente correspondentes aos parâmetros exigidos pela API do Spotify para autenticação de terceiros;
 
-* Importação de fontes que serão usadas no projeto através do Google Fonts;
+* Injeção de dependência da classe de serviços no construtor do componente lógico da tela de login (login.component.ts);
 
-* Importação de  variáveis entre arquivos SASS;
+* Implementação de método no componente lógico da tela de login (login.component.ts) que redireciona usuário para autenticação no Spotify utilizando a URL fornecida pela classe de serviços. Esse método é invocado ao clicar no botão.

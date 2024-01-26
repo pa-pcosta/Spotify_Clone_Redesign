@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { SpotifyConfiguration } from 'src/environments/environment';
 import SpotifyWebApi from 'spotify-web-api-js';
+import { IUsuario } from '../Interfaces/IUsuario';
 
 @Injectable({
   providedIn: 'root'
@@ -8,9 +9,35 @@ import SpotifyWebApi from 'spotify-web-api-js';
 export class SpotifyService {
 
   spotifyApi: SpotifyWebApi.SpotifyWebApiJs = null;
+  usuario: IUsuario;
 
   constructor() {
     this.spotifyApi = new SpotifyWebApi();
+  }
+
+  async inicializarUsuario (){
+    if(!!this.usuario)
+      return true;
+
+    const token = localStorage.getItem('token');
+
+    if(!token)
+      return false;
+
+    try{
+      this.definirAccessToken(token);
+
+      await this.obterUsuarioSpotify();
+      return true;
+    }
+    catch(ex){
+      return false;
+    }
+  }
+
+  obterUsuarioSpotify (){
+    const informacoesUsuario = this.spotifyApi.getMe();
+    console.log(informacoesUsuario);
   }
 
   obterUrlAutenticacaoSpotify() {

@@ -1,15 +1,20 @@
+import { Token } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { CanLoad, Route, Router, UrlSegment, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
-import { SpotifyService } from 'src/app/services/spotify.service';
+import { SpotifyService } from '../services/spotify.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AutenticadoGuard implements CanLoad {
 
-  constructor(private router: Router,
-    private spotifyService: SpotifyService){}
+  constructor (
+    private router: Router,
+    private spotifyService : SpotifyService
+    ){
+
+  }
 
   canLoad(
     route: Route,
@@ -17,27 +22,26 @@ export class AutenticadoGuard implements CanLoad {
     
     const token = localStorage.getItem('token');
 
-    if (!token) {
+    if (!token){
       return this.naoAutenticado();
     }
-    
-    return new Promise((res) => {
-      const usuarioCriado = this.spotifyService.inicializarUsuario();
-    
+
+    return new Promise(async (res) => {
+      
+      const usuarioCriado = await this.spotifyService.inicializarUsuario();
       if (usuarioCriado){
         res(true);
       }
-      else{
-        res(this.naoAutenticado());
+      else {
+        res(this.naoAutenticado())
       }
-    })      
+    }) 
   }
 
-  naoAutenticado (){
+  naoAutenticado () {
     localStorage.clear();
-    
     this.router.navigate(['login']);
-    
+
     return false;
   }
 }

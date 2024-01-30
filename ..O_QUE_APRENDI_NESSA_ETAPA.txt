@@ -1,15 +1,7 @@
-----------------------------------------    AULA #02    ----------------------------------------
+----------------------------------------    AULA #03    ----------------------------------------
 
 O QUE APRENDI NESSA ETAPA:
 
-* Criação do módulo de página de login. Nesse projeto cada página corresponde a um módulo. Dessa forma as páginas são carregadas apenas sob demanda para fins de desempenho;
+* [SCSS] :host {} indica o componente Angular no contexto do seu arquivo SASS. Toda estilização ali declarada será aplicada no componente inteiro.
 
-* Para assegurar que a aplicação se iniciará na tela de login foi definida uma rota no módulo raíz (app.module.ts) que redireciona o caminho do componente raíz (app.component.html) para path /login. Ao acessar esse caminho o módulo de login é carregado. Esse módulo, na sua rota padrão (''), carrega o componente login.component.ts que, por sua vez, renderiza a tela de login (login.component.html);
-
-* Estilização da página de login com logo do Spotify e botão. Foram utilizados conceitos de classes de divs e importação de variáveis de outro arquivo SASS;
-
-* Criação de Classe de Serviços que implementa método que concatena as variáveis de ambiente correspondentes aos parâmetros exigidos pela API do Spotify para autenticação de terceiros;
-
-* Injeção de dependência da classe de serviços no construtor do componente lógico da tela de login (login.component.ts);
-
-* Implementação de método no componente lógico da tela de login (login.component.ts) que redireciona usuário para autenticação no Spotify utilizando a URL fornecida pela classe de serviços. Esse método é invocado ao clicar no botão.
+* [GUARDS] diferença canActivate e canLoad
